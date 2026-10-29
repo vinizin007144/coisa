@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos - Padaria</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f6;
+            color: #203b60;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #cbd2dc;
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #203b60;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f1f4f8;
+        }
+
+        td:last-child {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Lista de produtos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+            </tr>
+        </thead>
+
+        <tbody id="corpoTabela"></tbody>
+    </table>
+
+    <script>
+        const dadosVinicius = [
+            {
+                produto: "Pão francês",
+                categoria: "Pães",
+                quantidade: 120,
+                preco: 0.90
+            },
+            {
+                produto: "Croissant",
+                categoria: "Salgados",
+                quantidade: 35,
+                preco: 7.50
+            },
+            {
+                produto: "Sonho",
+                categoria: "Doces",
+                quantidade: 28,
+                preco: 6.00
+            },
+            {
+                produto: "Pão de queijo",
+                categoria: "Salgados",
+                quantidade: 60,
+                preco: 3.50
+            },
+            {
+                produto: "Bolo de chocolate",
+                categoria: "Bolos",
+                quantidade: 15,
+                preco: 8.00
+            },
+            {
+                produto: "Brigadeiro",
+                categoria: "Doces",
+                quantidade: 50,
+                preco: 2.50
+            },
+            {
+                produto: "Coxinha",
+                categoria: "Salgados",
+                quantidade: 40,
+                preco: 6.00
+            },
+            {
+                produto: "Pão de mel",
+                categoria: "Doces",
+                quantidade: 25,
+                preco: 4.50
+            },
+            {
+                produto: "Torta de morango",
+                categoria: "Tortas",
+                quantidade: 12,
+                preco: 9.00
+            },
+            {
+                produto: "Biscoito amanteigado",
+                categoria: "Biscoitos",
+                quantidade: 30,
+                preco: 3.00
+            }
+        ];
+
+        const corpoTabela = document.getElementById("corpoTabela");
+
+        for (let produto of dadosVinicius) {
+            const linha = document.createElement("tr");
+
+            linha.innerHTML = `
+                <td>${produto.produto}</td>
+                <td>${produto.categoria}</td>
+                <td>${produto.quantidade}</td>
+                <td>${produto.preco.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
+                })}</td>
+            `;
+
+            corpoTabela.appendChild(linha);
+        }
+    </script>
+
+</body>
+</html>
